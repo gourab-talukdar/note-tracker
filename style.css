@@ -1,0 +1,206 @@
+:root{
+	--primary-color: rgba(255,193,7,1);
+	--success-color: rgba(76,175,80,1);
+	--danger-color: rgba(244,67,54,1);
+}
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Roboto",sans-serif;
+}
+body{
+	width: 100vw;
+	min-height: 100vh;
+	background: rgba(238,238,238 ,1);
+}
+/*-- ------------------------heading / app name --*/
+header{
+	width: 100%;
+	padding: 1rem 2rem;
+	background: var(--primary-color);
+	margin-bottom: 1rem;
+	display: flex;
+	align-items: center;
+}
+header i{
+	font-size: 1.5rem;
+}
+header h1{
+	display: inline-block;
+	letter-spacing: 1px;
+	margin-left: .5rem;
+}
+/*------------------------------- add new note button --*/
+.add-Btn-Container{
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin: 1rem 0;
+}
+.add-Btn-Container button{
+	height: 2.5rem;
+	width: 2.5rem;
+	background: var(--primary-color);
+	border: none;
+	outline: none;
+	border-radius: 50%;
+
+	color: #fff;
+	font-size: 1.8rem;
+	font-weight: 300;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+.add-Btn-Container button:hover{
+	background: rgba(240,181,0,1);
+	font-size: 2.2rem;
+}
+.add-Btn-Container span{
+	margin-left: .5rem;
+	margin-right: 4rem;
+}
+
+/*<!-- ----------------------------- saved notes html  
+            ----------------------------------------------------->*/
+.note-container{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(18rem,1fr));
+	grid-gap: 2rem;
+	padding: 0 1rem;
+}
+.note{
+	background: #fff;
+	padding: 1rem 1rem;
+	border-radius: .3rem;
+	box-shadow: 4px 3px 0.5rem rgba(0, 0, 0, 0.1);
+}
+/*<!-- -----------------date and edit container -->*/
+.meta-container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.meta-container small{
+	color: rgba(158,158,158,1);
+}
+.meta-container button{
+	padding: .1rem .3rem;
+	border-radius: .2rem;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+.meta-container button.edit-btn{
+	background: var(--success-color);
+	display: none;
+}
+.meta-container button.del-btn{
+	background: var(--danger-color);
+	margin-left: 0.5rem;
+}
+.meta-container button i{
+	color: #fff;
+}
+
+
+/*<!-- -------------------note title     -->*/
+.note-title-container input{
+	color: rgba(33,33,33 ,1);
+	letter-spacing: 1px;
+	font-weight: 500;
+	font-size: 1rem;
+	margin: .5rem 0;
+	padding: .3rem;
+	outline: none;
+	width: 100%;
+	border: 1px solid rgba(158,158,158 ,1);
+	border-radius: .2rem;
+}
+/*<!-- -----------------------------------note details -->*/
+.note-details-container textarea{
+	resize: none;
+	outline: none;
+	border-radius: .2rem;
+	height: 4rem;
+	width: 100%;
+	padding: .3rem;
+	border-color: rgba(158,158,158 ,1);
+	color: rgba(33,33,33 ,1);
+	letter-spacing: 1px;
+	font-size: .8rem;
+}
+/*----------------------save btn style*/
+.note .save-btn{
+	background: var(--primary-color);
+	border: none;
+	outline: none;
+	border-radius: .3rem;
+	color: #fff;
+	width: 100%;
+	display: block;
+	padding: .4rem 0;
+	font-size: 1rem;
+	letter-spacing: 2px;
+	margin-top: .5rem;
+	cursor: pointer;
+}
+
+/*<!------------------------------------- error style -->*/
+#error{
+	width: 80%;
+	background:	rgba(255,193,7,.5) ;
+	color: #2c3e50;
+	font-size: 1rem;
+	padding: .5rem 1rem;
+	margin: 1rem auto;
+	border-radius: .3rem;
+	position: fixed;
+	bottom: -100px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+.error-move{
+	animation: move 4s ease;
+}
+@keyframes move{
+	0%{
+		bottom: -100px;
+	}
+	30%{
+		bottom: 0px;
+	}
+	70%{
+		bottom: 0px;
+	}
+	100%{
+		bottom: -100px;
+	}
+}
+
+/*--------------------------------responsive design start here
+-----------------------------------------------------------*/
+@media only screen and (max-width: 538px){
+	.add-Btn-Container{
+		display: inline-block;
+		position: fixed;
+		bottom: 2rem;
+		right: 2rem;
+		z-index: 5;
+	}
+	.add-Btn-Container button{
+		height: 3rem;
+		width: 3rem;
+		font-size: 2.2rem;
+	}
+	.add-Btn-Container span{
+		display: none;
+	}
+	.note-container{
+		grid-template-columns: repeat(auto-fit, minmax(13rem,1fr));
+		grid-gap: 1.2rem;
+	}
+	#error{
+		font-size: 1rem;
+	}
+}
